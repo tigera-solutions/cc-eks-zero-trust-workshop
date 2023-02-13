@@ -76,7 +76,7 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
     You can also monitor your cluster installation on the Calico Cloud UI. Go to the "**Managed Clusters**" section, select your cluster and expand the timestamp dropdown to see the installation logs.
     In a few minutes the status will change from **Installing** to **Done**. Congratulations! You successfully connected your cluster to Calico Cloud.
 
-    ![installing](https://user-images.githubusercontent.com/104035488/188036070-71cd3cb7-639b-46f2-bd5e-dbdb401b48e3.gif)
+    ![11-connected-cluster](https://user-images.githubusercontent.com/104035488/218573288-96f92492-556a-4ba5-bc03-a1d1a70923be.gif)
 
 ## STEP 3 - Selecting your cluster.
 

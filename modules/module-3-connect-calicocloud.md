@@ -90,8 +90,6 @@ You can switch between clusters by following the steps below:
 
 3. Select your recently added cluster.
 
-   ![selecting_cluster](https://user-images.githubusercontent.com/104035488/188036074-857e6a19-7641-4dff-9f6b-02eb627cf748.gif)
-
 The "**Cluster**" dropdown button will be always visible accross the Calico Cloud UI, no matter which section you are viewing. You can change the cluster you want to interact with at any moment. 
 When you change the cluster, the whole Calico Cloud context will change immediatelly to reflect the information regarding the current selected cluster.
 

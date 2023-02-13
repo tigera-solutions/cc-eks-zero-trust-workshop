@@ -49,7 +49,7 @@ The simplest ways to configure your workspace environment is to either use your 
      Linux installation:
    
      ```bash
-     curl -o /tmp/kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.13/2022-10-31/bin/linux/amd64/kubectl
+     curl -o /tmp/kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.15/2023-01-11/bin/linux/amd64/kubectl
      sudo chmod +x /tmp/kubectl
      sudo mv /tmp/kubectl /usr/local/bin
      kubectl version --short --client
@@ -82,7 +82,7 @@ The simplest ways to configure your workspace environment is to either use your 
      Download the k9s_Linux_x68_64.tar.gz file from the k9s github repo
 
      ```bash
-     curl --silent --location "https://github.com/derailed/k9s/releases/download/v0.26.7/k9s_Linux_x86_64.tar.gz" | tar xz -C /tmp
+     curl --silent --location "https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz" | tar xz -C /tmp
      sudo mv /tmp/k9s /usr/local/bin
      k9s version
      ```
@@ -158,11 +158,4 @@ The simplest ways to configure your workspace environment is to either use your 
 
 [:arrow_right: Module 2 - Create an EKS cluster and Connect it to Calico Cloud](/modules/module-2-create-eks.md) <br> 
 
-[:leftwards_arrow_with_hook: Back to Main](/README.md)
-
-
----
-
-[:arrow_right: Module 2 - Deploy an AWS EKS cluster](/modules/module-2-deploy-eks.md) <br>
- 
 [:leftwards_arrow_with_hook: Back to Main](/README.md)  

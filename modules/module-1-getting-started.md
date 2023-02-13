@@ -90,7 +90,7 @@ The simplest ways to configure your workspace environment is to either use your 
 4. Clone this repository
 
    ```bash
-   git clone https://github.com/tigera-solutions/cc-eks-container-security-workshop.git && cd cc-eks-container-security-workshop
+   git clone git@github.com:tigera-solutions/cc-eks-zero-trust-workshop.git && cd cc-eks-zero-trust-workshop
    ```
 
 5. Configure AMI role for Cloud9 workspace.

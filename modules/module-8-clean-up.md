@@ -4,7 +4,7 @@
 
    ```bash
    kubectl delete -f pre/20-dev-app.yaml
-   kubectl delete -f pre/30-onlineboutique-app.yaml
+   kubectl delete -f pre/30-hipstershop-app.yaml
    ```
 
 2. Delete the AKS cluster.

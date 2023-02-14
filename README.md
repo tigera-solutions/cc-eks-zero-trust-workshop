@@ -34,7 +34,7 @@ The estimated time to complete this workshop is 60-90 minutes.
 This workshop is organized in sequential modules. One module will build up on top of the previous module, so please, follow the order as proposed below.
  
 Module 1 - [Getting Started](/modules/module-1-getting-started.md)  
-Module 2 - [Deploy an AWS EKS cluster](/modules/module-2-deploy-eks.md)  
+Module 2 - [Deploy an AWS EKS cluster](/modules/module-2-create-eks.md)  
 Module 3 - [Connect the AWS EKS cluster to Calico Cloud](/modules/module-3-connect-calicocloud.md)  
 Module 4 - [Zero-Trust Workload Access Control](/modules/module-4-workload-access-control.md)  
 Module 5 - [Identity-aware Microsegmentation](/modules/module-5-identity-aware-microsegmentation.md)  

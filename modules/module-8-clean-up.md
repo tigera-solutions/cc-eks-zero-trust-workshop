@@ -37,4 +37,4 @@
 
 [:leftwards_arrow_with_hook: Back to Main](/README.md)  <br>
 
-[:arrow_left: Module 7 - Zero-trust security controls at application level](/modules/module-7-zero-trust-application.md)  
+[:arrow_left: Module 7 - Application Level Observability](/modules/module-7-application-observability.md) 

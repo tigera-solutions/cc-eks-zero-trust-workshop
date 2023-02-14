@@ -7,26 +7,31 @@
    kubectl delete -f pre/30-hipstershop-app.yaml
    ```
 
-2. Delete the AKS cluster.
+2. Delete EKS cluster.
+
+   ```bash
+   source ~/labVars.env
+   eksctl delete cluster --name $CLUSTERNAME --region $REGION
+   ```
    
-   ```bash
-   az aks delete \
-     --resource-group $RESOURCE_GROUP \
-     --name $CLUSTERNAME
-   ```
+3. Delete Cloud9 instance.
 
-3. Delete the resource group.
-   
-   ```bash
-   az group delete \
-     --name $RESOURCE_GROUP
-   ```
+   Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workspace`.
 
-4. Delete environment variables backup file.
+4. Delete IAM role created for this workshop.
+
+   Use your local shell to run the follow AWS CLI commands:
 
    ```bash
-   rm ~/workshopvars.env
+   IAM_ROLE='tigera-workshop-admin'
+   ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
+   aws iam detach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
+   aws iam remove-role-from-instance-profile --instance-profile-name $IAM_ROLE --role-name $IAM_ROLE
+   aws iam delete-instance-profile --instance-profile-name $IAM_ROLE
+   aws iam delete-role --role-name $IAM_ROLE
    ```
+
+   If this command fails, you can remove the role via AWS Console once you delete the Cloud9 instance
 
 ---
 

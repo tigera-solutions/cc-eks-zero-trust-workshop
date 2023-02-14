@@ -200,5 +200,5 @@ The NetworkSet can also be used to block access from a specific ip address or ci
 
 [:arrow_right: Module 7 - Application Level Observability](/modules/module-7-application-observability.md)   <br>
 
-[:arrow_left: Module 5 - Ingress and Egress access control using NetworkSets](/modules/module-5-network-sets.md)   
+[:arrow_left: Module 5 - Identity-aware Microsegmentation](/modules/module-5-identity-aware-microsegmentation.md)    
 [:leftwards_arrow_with_hook: Back to Main](/README.md)  

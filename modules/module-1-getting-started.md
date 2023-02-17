@@ -113,7 +113,7 @@ The simplest ways to configure your workspace environment is to either use your 
    # assign AdministratorAccess default policy. You can use a custom policy if required.
    ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
    # create IAM role
-   aws iam create-role --role-name $IAM_ROLE --assume-role-policy-document file://configs/trust-policy.json
+   aws iam create-role --role-name $IAM_ROLE --assume-role-policy-document file://cfg/trust-policy.json
    aws iam attach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
    # tag role
    aws iam tag-role --role-name $IAM_ROLE --tags '{"Key": "purpose", "Value": "tigera-eks-workshop"}'

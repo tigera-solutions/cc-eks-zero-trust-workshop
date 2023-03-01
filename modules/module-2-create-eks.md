@@ -5,7 +5,14 @@ For EKS, the Calico OSS can be used as a CNI, or you can make use of the AWS VPC
 We will use the second approach during this workshop. Please, find below an example on how to create a two nodes cluster with an small footprint, but feel free to create your EKS cluster with the parameters you prefer. Do not forget to include the region if different than the default on your account.
 
 ```bash
-export CLUSTERNAME=tigera-workshop
+echo "# Start Lab Params" > ~/labVars.env
+UNIQUE_SUFFIX=$USER$RANDOM
+# Remove Underscores and Dashes (Not Allowed in EKS Names)
+UNIQUE_SUFFIX="${UNIQUE_SUFFIX//_}"
+UNIQUE_SUFFIX="${UNIQUE_SUFFIX//-}"
+# Check Unique Suffix Value (Should be No Underscores or Dashes)
+echo $UNIQUE_SUFFIX
+export CLUSTERNAME=$UNIQUE_SUFFIX-tigera-workshop
 export REGION=ca-central-1
 # 
 echo "# Start Lab Params" > ~/labVars.env

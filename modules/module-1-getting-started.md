@@ -2,17 +2,17 @@
 
 ## Set up and configure your environment to work with AWS resources.
 
->At the instructor-led workshop this module can be skipped as a workspace environment will be provided.
+>This module can be skipped at the instructor-led workshop as a workspace environment will be provided.
 
-## Choose between local environment and Cloud9 instance
+## Choose between the local environment and the Cloud9 instance
 
-The simplest ways to configure your workspace environment is to either use your local environment, i.e. laptop, desktop computer, etc., or create an [AWS Cloud9 environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial.html) from which you can run all necessary commands in this workshop. If you're familiar with tools like `ssh client`, `git`, `jq`, `Ncat` and feel comfortable using your local shell, then go to `setp 2` in the next section.
+The simplest ways to configure your workspace environment is to use your local environment, i.e. laptop, desktop computer, etc., or create an [AWS Cloud9 environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial.html) from which you can run all necessary commands in this workshop. If you're familiar with tools like `ssh client`, `git`, `jq`, `Ncat` and feel comfortable using your local shell, go to `step 2` in the next section.
 
 ## Steps
 
-1. Create Cloud9 workspace environment.
+1. Create a Cloud9 workspace environment.
 
-    To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `Developer Tools` > `Cloud9` or just search for `Cloud9`. Create an environment in the desired region. You can use all the default settings when creating the environment, but consider using `t3.small` instance instead of the default `t2.micro` instance as that could be a bit slow. You can name it as `tigera-workspace` to quickly find it in case you have many `Cloud9` instances. It usually takes only a few minutes to get the Cloud9 instance running.
+    To configure a Cloud9 instance, open AWS Console and navigate to `Services` > `Developer Tools` > `Cloud9` or search for `Cloud9`. Create an environment in the desired region. You can use all the default settings when creating the environment, but consider using `t3.small` instance instead of the default `t2.micro` instance as that could be a bit slow. You can name it `tigera-workspace` to quickly find it in case you have many `Cloud9` instances. It usually takes only a few minutes to get the Cloud9 instance running.
 
 2. Ensure your environment has these tools:
 
@@ -49,7 +49,7 @@ The simplest ways to configure your workspace environment is to either use your 
      Linux installation:
    
      ```bash
-     curl -o /tmp/kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.15/2023-01-11/bin/linux/amd64/kubectl
+     curl -o /tmp/kubectl curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.25.6/2023-01-30/bin/linux/amd64/kubectl
      sudo chmod +x /tmp/kubectl
      sudo mv /tmp/kubectl /usr/local/bin
      kubectl version --short --client
@@ -90,7 +90,7 @@ The simplest ways to configure your workspace environment is to either use your 
 4. Clone this repository
 
    ```bash
-   git clone git@github.com:tigera-solutions/cc-eks-zero-trust-workshop.git && cd cc-eks-zero-trust-workshop
+   git clone https://github.com/tigera-solutions/cc-eks-zero-trust-workshop.git && cd cc-eks-zero-trust-workshop
    ```
 
 5. Configure AMI role for Cloud9 workspace.

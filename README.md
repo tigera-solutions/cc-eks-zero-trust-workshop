@@ -24,10 +24,10 @@ The estimated time to complete this workshop is 60-90 minutes.
 
 ### Learning Objectives
 
-1. Learn how to deploy zero-trust workload access controls
-2. Extend firewall protection at the granular, workload level
-3. Block lateral movement of APTs with identity-aware microsegmentation
-4. Understand how to apply zero-trust security controls at application level.
+1. Learn how to deploy zero-trust workload access controls.
+2. Extend firewall protection at the granular workload level.
+3. Block lateral movement of APTs with identity-aware micro-segmentation.
+4. Understand how to apply zero-trust security controls at the application level.
 
 ## Modules
 

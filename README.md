@@ -2,13 +2,13 @@
 
 ## Welcome
 
-In this EKS-focused workshop, you will work with AWS and Calico Cloud to learn how implement zero-trust security for workloads to reduce the attack surface of applications running on AKS.  
+In this EKS-focused workshop, you will work with AWS and Calico Cloud to learn how to implement zero-trust security for workloads to reduce the attack surface of applications running on AKS.  
 
 Cloud-native applications require a modern approach based on the zero-trust principles of identity-based access, least privilege access, and proactively detecting threats and reducing the blast radius in case of a breach.
 
 Calico Cloud enables fine-grained, zero-trust workload access controls between your microservices and external databases, cloud services, APIs, and other applications. It also prevents the lateral movement of threats with identity-aware segmentation that works across all of your workload environments, including hosts, VMs, Kubernetes components, and services.
 
-You will come away from this workshop with an understanding of how others in your industry are securing and observing cloud-native applications in Microsoft Azure, along with best practices that you can implement in your organization.
+You will come away from this workshop with an understanding of how others in your industry are securing and observing cloud-native applications in Microsoft Azure, along with best practices you can implement in your organization.
 
 ### Time Requirements
 

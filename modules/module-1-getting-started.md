@@ -20,7 +20,7 @@ The simplest ways to configure your workspace environment is to use your local e
    
      [Installation instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
         
-     Linux installation:
+     Linux (AmazonLinux/CentOS,RHEL,Fedora) installation:
      
      ```bash
      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -34,7 +34,7 @@ The simplest ways to configure your workspace environment is to use your local e
    
      [Installation instructions](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html)
      
-     Linux installation
+     Linux (AmazonLinux/CentOS,RHEL,Fedora) installation
    
      ```bash
      curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
@@ -46,7 +46,7 @@ The simplest ways to configure your workspace environment is to use your local e
    
      [Installation instructions](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
      
-     Linux installation:
+     Linux (AmazonLinux/CentOS,RHEL,Fedora) installation:
    
      ```bash
      curl -o /tmp/kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.25.6/2023-01-30/bin/linux/amd64/kubectl
@@ -55,11 +55,12 @@ The simplest ways to configure your workspace environment is to use your local e
      kubectl version --short --client
      ```
    
-   - git and Ncat
+   - git and Ncat 
    
      [Installation instructions - git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
      [Installation instructions - Ncat](https://nmap.org/ncat/)
-     Linux Amazon/Centos:
+     
+     Linux (AmazonLinux/CentOS,RHEL,Fedora) installation:
    
      ```bash
      sudo yum install -y git-all nc
@@ -77,7 +78,7 @@ The simplest ways to configure your workspace environment is to use your local e
      source ~/.bashrc
      ```
  
-   - K9s installation (optional)
+   - K9s installation (amd64) (optional)
 
      Download the k9s_Linux_x68_64.tar.gz file from the k9s github repo
 

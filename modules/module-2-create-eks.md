@@ -34,26 +34,26 @@ eksctl create cluster --name $CLUSTERNAME --version 1.24  --region $REGION --nod
   eksctl get cluster $CLUSTERNAME --region $REGION
   ```
 
-- Install the EBS driver for the EKS cluster
+- Install the EBS driver for the EKS cluster.
 
   ```bash
   kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.16"
   ```
   
-  Check driver pods status
+  Check driver pods status.
   
   ```bash
   kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
   ```
 
-- Test access to EKS cluster with kubectl
+- Test access to EKS cluster with kubectl.
 
-  Once the EKS cluster is provisioned with eksctl tool, the kubeconfig file would be placed into ~/.kube/config path. The kubectl CLI looks for kubeconfig at ~/.kube/config path or into KUBECONFIG env var.
+  Once the EKS cluster is provisioned with the eksctl tool, the kubeconfig file would be placed into `~/.kube/config` path. The kubectl CLI looks for kubeconfig at `~/.kube/config` path or into KUBECONFIG environment variable.
 
   ```bash
-  # verify kubeconfig file path
+  # Verify kubeconfig file path.
   ls ~/.kube/config
-  # test cluster connection
+  # Test cluster connection.
   kubectl get nodes
   ```
 

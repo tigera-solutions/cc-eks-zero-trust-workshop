@@ -61,7 +61,7 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
     installer.operator.calicocloud.io/aks-cc-repo created
     </pre>
     
-    Joining the cluster to Calico Cloud can take a few minutes. Meanwhile the Calico resources can be monitored until they are all reporting `Available` as `True`
+    Joining the cluster to Calico Cloud can take a few minutes. Meanwhile the Calico resources can be monitored until they are all reporting `Available` as `True`.
 
     ```bash
     kubectl get tigerastatus                                                                                                                    

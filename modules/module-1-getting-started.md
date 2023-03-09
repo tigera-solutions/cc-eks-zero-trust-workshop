@@ -80,7 +80,7 @@ The simplest ways to configure your workspace environment is to use your local e
  
    - K9s installation (amd64) (optional)
 
-     Download the k9s_Linux_x68_64.tar.gz file from the k9s github repo
+     Download the k9s_Linux_x68_64.tar.gz file from the k9s github repo, uncompress it and move to the `bin` folder.
 
      ```bash
      curl --silent --location "https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz" | tar xz -C /tmp
@@ -96,11 +96,11 @@ The simplest ways to configure your workspace environment is to use your local e
 
 5. Configure AMI role for Cloud9 workspace.
 
-   >This is necessary when using Cloud9 environment which has an IAM role automatically associated with it. You need to replace this role with a custom IAM role that provides necessary permissions to build EKS cluster so that you can work with the cluster using `kubectl` CLI.
+   >This step is necessary when using the Cloud9 environment, which has an IAM role automatically associated with it. You need to replace this role with a custom IAM role that provides the necessary permissions to build the EKS cluster so that you can work with the cluster using `kubectl` CLI.
 
-   a. When using Cloud9 instance, by default the instance has AWS managed temporary credentials that provide limited permissions to AWS resources. In order to manage IAM resources from the Cloud9 workspace, export your user's [AWS Access Key/ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) via environment variables. If you already have them under your `~/.aws/credentials` then you can skip this step.
+   a. When using Cloud9 instance, by default, the instance has AWS-managed temporary credentials that provide limited permissions to AWS resources. To manage IAM resources from the Cloud9 workspace, export your user's [AWS Access Key/ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) via environment variables. If you already have them under your `~/.aws/credentials` you can skip this step.
 
-   >It is recommended to use your personal AWS account which would have full access to AWS resources. If using a corporate AWS account, make sure to check with account administrators to provide you with sufficient permissions to create and manage EKS clusters and Load Balancer resources.
+   >It is recommended to use your personal AWS account, which would have full access to AWS resources. If using a corporate AWS account, check with account administrators to provide you with sufficient permissions to create and manage EKS clusters and Load Balancer resources.
 
    ```bash
    export AWS_ACCESS_KEY_ID='<your_accesskey_id>'
@@ -111,16 +111,16 @@ The simplest ways to configure your workspace environment is to use your local e
 
    ```bash
    IAM_ROLE='tigera-workshop-admin'
-   # assign AdministratorAccess default policy. You can use a custom policy if required.
+   # Assign AdministratorAccess default policy. You can use a custom policy if required.
    ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
-   # create IAM role
+   # Create the IAM role.
    aws iam create-role --role-name $IAM_ROLE --assume-role-policy-document file://cfg/trust-policy.json
    aws iam attach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
-   # tag role
+   # Tag the role.
    aws iam tag-role --role-name $IAM_ROLE --tags '{"Key": "purpose", "Value": "tigera-eks-workshop"}'
-   # create instance profile
+   # Create the instance profile.
    aws iam create-instance-profile --instance-profile-name $IAM_ROLE
-   # add IAM role to instance profile
+   # Add the IAM role to the instance profile.
    aws iam add-role-to-instance-profile --role-name $IAM_ROLE --instance-profile-name $IAM_ROLE
    ```
 
@@ -130,26 +130,26 @@ The simplest ways to configure your workspace environment is to use your local e
 
    ![Cloud9 manage EC2](https://user-images.githubusercontent.com/104035488/207369343-2af69bbb-bbca-424b-96ae-154b7b2c1a90.png)
 
-   - Select the instance, then choose `Actions` > `Security` > `Modify IAM Role` and assign the IAM role you created in previous step, i.e. `tigera-workshop-admin`.  
+   - Select the instance, then choose `Actions` > `Security` > `Modify IAM Role` and assign the IAM role you created in the previous step, i.e. `tigera-workshop-admin`.  
 
    <p><img width="600" alt="modify-iam-role" src="https://user-images.githubusercontent.com/104035488/207369432-c5f77cb3-19ab-41f8-940f-11677a36acf4.png"></p>
 
    d. Update IAM settings for your workspace.
 
-   - Return to your Cloud9 workspace and click the gear icon (in top right corner)
-   - Select AWS SETTINGS
-   - Turn off AWS managed temporary credentials
-   - Close the Preferences tab
+   - Return to your Cloud9 workspace and click the gear icon (at the top right corner).
+   - Select AWS SETTINGS.
+   - Turn off AWS-managed temporary credentials.
+   - Close the Preferences tab.
 
    ![Cloud9 AWS settings](https://user-images.githubusercontent.com/104035488/207369474-26386f6b-e67f-4d32-9b68-62f13dbcc118.png)
 
-   - Remove locally stored `~/.aws/credentials`
+   - Remove locally stored `~/.aws/credentials`.
 
      ```bash
      rm -vf ~/.aws/credentials
      ```
 
-   e. Unset `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to allow Cloud9 instance to use the configured IAM role.
+   e. Unset `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables to allow the Cloud9 instance to use the configured IAM role.
 
    ```bash
    unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY

@@ -62,7 +62,7 @@ The simplest ways to configure your workspace environment is to use your local e
      Linux Amazon/Centos:
    
      ```bash
-     sudo yum install git-all nc -y
+     sudo yum install -y git-all nc
      git --version
      nc --version
      ```

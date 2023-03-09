@@ -21,7 +21,13 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
 
 1. The welcome screen will allow you to choose among four use cases and will provide a guided tour for each use case. After that, you can proceed to connect your first cluster. This option directs you to the **Managed Clusters** section. Click on the "**Connect Cluster**" button to start the process.
 
-   The Connect Cluster window will allow you to choose a name to identify your cluster in Calico Cloud and select which platform you are running the cluster on. The next window presents a link for you to review the cluster requirements for Calico Cloud. A kubectl command to run the installation script will be generated, you need to copy and apply this command in your cluster.
+   The Connect Cluster window will allow you to choose a name to identify your cluster in Calico Cloud and select which platform you are running the cluster on. The next window presents a link for you to review the cluster requirements for Calico Cloud. Calico Cloud will generate a kubectl command to run the installation script, and you need to copy and apply this command in your cluster.
+
+   > **Attention**: During the live workshop, the Calico Cloud cluster will be shared. To avoid confusion, use your EKS cluster name to register your cluster. This name can be retrieved using the following command on the Cloud9 prompt:
+
+    ```bash
+    echo $CLUSTERNAME
+    ```
 
    ![05-connect-cluster](https://user-images.githubusercontent.com/104035488/218572760-885c67b8-85a0-4c2a-b040-b008461d7928.gif)
 

@@ -49,7 +49,7 @@ The simplest ways to configure your workspace environment is to use your local e
      Linux installation:
    
      ```bash
-     curl -o /tmp/kubectl curl https://s3.us-west-2.amazonaws.com/amazon-eks/1.25.6/2023-01-30/bin/linux/amd64/kubectl
+     curl -o /tmp/kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.25.6/2023-01-30/bin/linux/amd64/kubectl
      sudo chmod +x /tmp/kubectl
      sudo mv /tmp/kubectl /usr/local/bin
      kubectl version --short --client

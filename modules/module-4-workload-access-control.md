@@ -1,8 +1,8 @@
 # Module 4 - Zero Trust Workload Access Control
 
-Calico provides methods to enable fine-grained access controls between your microservices and external databases, cloud services, APIs, and other applications that are protected behind a firewall. You can enforce controls from within the cluster using DNS egress policies, from a firewall outside the cluster using the egress gateway. Controls are applied on a fine-grained, per-pod basis.
+Calico provides methods to enable fine-grained access controls between your microservices and external databases, cloud services, APIs, and other applications that are protected by a firewall. You can enforce controls from within the cluster using DNS egress policies from a firewall outside the cluster using the egress gateway. Rules are applied on a fine-grained, per-pod basis.
 
-In this module, we will learn how to use Calico to create network policies to control access to and from a pod. For this, we will install two example application stacks: The Online Boutique and the Dev environment. Once the applications are deployed, we will create and test network security policies with different ingress and egress rules to demonstrate how the **workload access control** is done.
+In this module, we will learn how to use Calico to create network policies to control access to and from a pod. We will install two example application stacks: The Online Boutique and the Dev environment. Once the applications are deployed, we will create and test network security policies with different ingress and egress rules to demonstrate how the **workload access control** is done.
 
 1. Installing the example application stacks:
 
@@ -25,26 +25,26 @@ Connect to Calico Cloud GUI. From the menu select `Service Graph > Flow Visualiz
 
 ## Network Security Policies
 
-Calico Security Policies provide a richer set of policy capabilities than Kubernetes network policies including:  
+Calico Security Policies provide a richer set of policy capabilities than Kubernetes network policies, including:  
 
-- Policies that can be applied to any kind of endpoint: pods/containers, VMs, and/or to host interfaces
-- Policies that can define rules that apply to ingress, egress, or both
+- Policies that can be applied to any endpoints: pods/containers, VMs, and host interfaces.
+- Policies that can define rules that apply to ingress, egress, or both.
 - Policy rules support:
-  - Actions: allow, deny, log, pass
+  - Actions: allow, deny, log, pass.
   - Source and destination match criteria:
-    - Ports: numbered, ports in a range, and Kubernetes named ports
-    - Protocols: TCP, UDP, ICMP, SCTP, UDPlite, ICMPv6, protocol numbers (1-255)
-    - HTTP attributes (if using Istio service mesh)
-    - ICMP attributes
-    - IP version (IPv4, IPv6)
-    - IP or CIDR
-    - Endpoint selectors (using label expression to select pods, VMs, host interfaces, and/or network sets)
-    - Namespace selectors
-    - Service account selectors
+    - Ports: numbered, ports in a range, and Kubernetes named ports.
+    - Protocols: TCP, UDP, ICMP, SCTP, UDPlite, ICMPv6, protocol numbers (1-255).
+    - HTTP attributes (if using Istio service mesh).
+    - ICMP attributes.
+    - IP version (IPv4, IPv6).
+    - IP or CIDR.
+    - Endpoint selectors (using label expression to select pods, VMs, host interfaces, and/or network sets).
+    - Namespace selectors.
+    - Service account selectors.
 
 ### The Zero Trust approach
 
-A global default deny policy ensures that unwanted traffic (ingress and egress) is denied by default. Pods without policy (or incorrect policy) are not allowed traffic until appropriate network policy is defined. Although the staging policy tool will help you find incorrect and missing policy, a global deny helps mitigate against other lateral malicious attacks.
+A global default deny policy ensures that unwanted traffic (ingress and egress) is denied by default. Pods without policy (or incorrect policy) are allowed traffic once the appropriate network policy is defined. Although the staging policy tool will help you find an incorrect or missing policy, a global deny helps mitigate other lateral malicious attacks.
 
 By default, all traffic is allowed between the pods in a cluster. Let's start by testing connectivity between application components and across application stacks. All of these tests should succeed as there are no policies in place.
 
@@ -87,7 +87,7 @@ c. Test connectivity from each namespace dev and default to the Internet.
    -c main -- sh -c 'curl -m3 -sI http://www.google.com 2>/dev/null | grep -i http'
    ```
 
-We recommend that you create a global default deny policy after you complete writing policy for the traffic that you want to allow. Use the stage policy feature to get your allowed traffic working as expected, then lock down the cluster to block unwanted traffic.
+We recommend creating a global default deny policy after you complete writing the policies for the traffic you want to allow. Use the stage policy feature to get your allowed traffic working as expected, then lock down the cluster to block unwanted traffic.
 
 1. Create a staged global default deny policy. It will shows all the traffic that would be blocked if it were converted into a deny.
 
@@ -106,7 +106,7 @@ We recommend that you create a global default deny policy after you complete wri
    EOF
    ```
 
-   The staged policy does not affect the traffic directly but allows you to view the policy impact if it were to be enforced. You can see the deny traffic in staged policy.
+   The staged policy does not affect the traffic directly but allows you to view the policy impact if it were to be enforced. You can see the denied traffic in the staged policy.
 
 2. Create a network policy to allow the traffic shown as blocked (staged) in step 1, from the centos pod to the nginx in the same namespace.
   

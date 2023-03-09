@@ -31,13 +31,13 @@ eksctl create cluster --name $CLUSTERNAME --version 1.24  --region $REGION --nod
   Once cluster is created you can list it using eksctl.
   
   ```bash
-  eksctl get cluster tigera-workshop --region $REGION
+  eksctl get cluster $CLUSTERNAME --region $REGION
   ```
 
 - Install the EBS driver for the EKS cluster
 
   ```bash
-  kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.15"
+  kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.16"
   ```
   
   Check driver pods status

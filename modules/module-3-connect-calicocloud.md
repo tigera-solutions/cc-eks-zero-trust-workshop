@@ -1,9 +1,9 @@
 # Module 3 - Connect your EKS cluster to Calico Cloud
 
-> **Note**: In order to complete this module, you will need to a [Calico Cloud account](https://www.calicocloud.io/). If you are participating in a live workshop, you will receive an invite with the information to login into an active Calico Cloud environment and join your AKS cluster in there.  
-If you are running this workshop in a self-paced mode, you can create an Calico Cloud environment following the steps [here](/modules/submodule-3.1-create-calicloud.md).  
+> **Note**: To complete this module, you will need a [Calico Cloud account](https://www.calicocloud.io/). If you are participating in a live workshop, you will receive an invite with the information to login into an active Calico Cloud environment. Once logged in,  join your EKS cluster there.
+If you are running this workshop in a self-paced mode, you can create a Calico Cloud environment following the steps [here](/modules/submodule-3.1-create-calicloud.md).  
 
-Issues with being unable to navigate menus in the UI are often due to browsers blocking scripts - please ensure that you disabled all blocker scripts.
+Issues with being unable to navigate menus in the UI are often due to browsers blocking scripts - please ensure that you disable all blocker scripts.
 
 ## Step 1 - Accept the Invitation
 
@@ -11,7 +11,7 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
  
    ![accept_invitation](https://user-images.githubusercontent.com/104035488/215204989-66b666d9-5e93-45b5-a0c5-2236b135af31.png)
    
-2. Click on the link ACCEPT INVITATION and create an password to access the Calico Cloud.
+2. Click on the link ACCEPT INVITATION and create a password to access the Calico Cloud.
 
    <img width="300" alt="create a password" src="https://user-images.githubusercontent.com/104035488/215205017-0a41f506-5c91-4830-9249-677c6a06fb3b.png">
 
@@ -19,7 +19,7 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
 
 ## Step 2 - Connecting your cluster to Calico Cloud.
 
-1. The welcome screen will allow you to choose among four use cases and will provide a guided tour for each use case. After that you can proceed to connect your first cluster. This option directs you to the **Managed Clusters** section. Click on the "**Connect Cluster**" button to start the process.
+1. The welcome screen will allow you to choose among four use cases and will provide a guided tour for each use case. After that, you can proceed to connect your first cluster. This option directs you to the **Managed Clusters** section. Click on the "**Connect Cluster**" button to start the process.
 
    The Connect Cluster window will allow you to choose a name to identify your cluster in Calico Cloud and select which platform you are running the cluster on. The next window presents a link for you to review the cluster requirements for Calico Cloud. A kubectl command to run the installation script will be generated, you need to copy and apply this command in your cluster.
 

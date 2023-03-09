@@ -23,10 +23,10 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
 
    The Connect Cluster window will allow you to choose a name to identify your cluster in Calico Cloud and select which platform you are running the cluster on. The next window presents a link for you to review the cluster requirements for Calico Cloud. Calico Cloud will generate a kubectl command to run the installation script, and you need to copy and apply this command in your cluster.
 
-   > **:warning: Attention**: During the live workshop, the Calico Cloud cluster will be shared. To avoid confusion, use your EKS cluster name to register your cluster. This name can be retrieved using the following command on the Cloud9 prompt:
+   > **:warning: Attention**: During the live workshop, the Calico Cloud cluster will be shared. To avoid confusion, you can create a random prefix for your cluster name. This name can be achieved using the following command on the Cloud9 prompt:
 
     ```bash
-    echo $CLUSTERNAME
+    echo $RANDOM-tigera-workshop
     ```
 
    ![05-connect-cluster](https://user-images.githubusercontent.com/104035488/218572760-885c67b8-85a0-4c2a-b040-b008461d7928.gif)

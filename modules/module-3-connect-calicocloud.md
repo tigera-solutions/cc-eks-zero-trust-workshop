@@ -23,7 +23,7 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
 
    The Connect Cluster window will allow you to choose a name to identify your cluster in Calico Cloud and select which platform you are running the cluster on. The next window presents a link for you to review the cluster requirements for Calico Cloud. Calico Cloud will generate a kubectl command to run the installation script, and you need to copy and apply this command in your cluster.
 
-   > **:warning: Attention:**: During the live workshop, the Calico Cloud cluster will be shared. To avoid confusion, use your EKS cluster name to register your cluster. This name can be retrieved using the following command on the Cloud9 prompt:
+   > **:warning: Attention**: During the live workshop, the Calico Cloud cluster will be shared. To avoid confusion, use your EKS cluster name to register your cluster. This name can be retrieved using the following command on the Cloud9 prompt:
 
     ```bash
     echo $CLUSTERNAME
@@ -80,13 +80,13 @@ Issues with being unable to navigate menus in the UI are often due to browsers b
     </pre>
 
     You can also monitor your cluster installation on the Calico Cloud UI. Go to the "**Managed Clusters**" section, select your cluster and expand the timestamp dropdown to see the installation logs.
-    In a few minutes the status will change from **Installing** to **Done**. Congratulations! You successfully connected your cluster to Calico Cloud.
+    In a few minutes, the status will change from **Installing** to **Done**. Congratulations! You successfully connected your cluster to Calico Cloud.
 
     ![11-connected-cluster](https://user-images.githubusercontent.com/104035488/218573288-96f92492-556a-4ba5-bc03-a1d1a70923be.gif)
 
 ## STEP 3 - Selecting your cluster.
 
-Once the installation is completed, you will be able to start interacting with your cluster from the Calico Cloud interface. Calico Cloud provides a single pane of glass for managing multiple clusters. If you followed the previous steps, you would have two clusters connected to Calico Cloud at this point: Your cluster and a pre-configured lab cluster that allows you to explore some of the features in Calico Cloud.
+Once the installation is completed, you can to start interacting with your cluster from the Calico Cloud interface. Calico Cloud provides a single pane of glass for managing multiple clusters. If you followed the previous steps, you would have two clusters connected to Calico Cloud at this point: Your cluster and a pre-configured lab cluster that allows you to explore some of the features in Calico Cloud.
 
 You can switch between clusters by following the steps below:
 
@@ -98,8 +98,8 @@ You can switch between clusters by following the steps below:
    
    ![select_cluster](https://user-images.githubusercontent.com/104035488/218578499-dad03ec7-d295-4006-86d3-f71660fc6917.png)
 
-The "**Cluster**" dropdown button will be always visible accross the Calico Cloud UI, no matter which section you are viewing. You can change the cluster you want to interact with at any moment. 
-When you change the cluster, the whole Calico Cloud context will change immediatelly to reflect the information regarding the current selected cluster.
+The "**Cluster**" dropdown button will always be visible across the Calico Cloud UI, no matter which section you are viewing. You can change the cluster you want to interact with at any moment. 
+When you change the cluster, the whole Calico Cloud context will change immediately to reflect the information regarding the currently selected cluster.
 
 --- 
 

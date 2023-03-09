@@ -1,8 +1,11 @@
 # Module 2 - Create an EKS cluster and Connect it to Calico Cloud
 
-For EKS, the Calico OSS can be used as a CNI, or you can make use of the AWS VPC networking as CNI and have Calico only as a plugin for the security policies. 
+For EKS, the Calico OSS can be used as a CNI, or you can use the AWS VPC networking as CNI and have Calico only as a plugin for the security policies. 
 
-We will use the second approach during this workshop. Please, find below an example on how to create a two nodes cluster with an small footprint, but feel free to create your EKS cluster with the parameters you prefer. Do not forget to include the region if different than the default on your account.
+We will use the second approach during this workshop. Please, find below an example of how to create a two nodes cluster with a small footprint, but feel free to create your EKS cluster with the parameters you prefer. Remember to include the region if different than the default on your account.
+
+> **Note**: During this workshop we'll set up some environment variables. If you're terminal session restarts, you may need to reload these variables. You can use that via the following command: <p>
+`source ~/labVars.env`
 
 ```bash
 echo "# Start Lab Params" > ~/labVars.env

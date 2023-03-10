@@ -8,7 +8,7 @@ Cloud-native applications require a modern approach based on the zero-trust prin
 
 Calico Cloud enables fine-grained, zero-trust workload access controls between your microservices and external databases, cloud services, APIs, and other applications. It also prevents the lateral movement of threats with identity-aware segmentation that works across all of your workload environments, including hosts, VMs, Kubernetes components, and services.
 
-You will come away from this workshop with an understanding of how others in your industry are securing and observing cloud-native applications in Microsoft Azure, along with best practices you can implement in your organization.
+You will come away from this workshop with an understanding of how others in your industry are securing and observing cloud-native applications in AWS, along with best practices you can implement in your organization.
 
 ### Time Requirements
 

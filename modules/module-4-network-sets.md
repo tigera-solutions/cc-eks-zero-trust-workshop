@@ -1,8 +1,8 @@
-# Module 6 - Ingress and Egress access control using NetworkSets
+# Module 4 - Ingress and Egress access control using NetworkSets
 
 It's also possible to create network policies for controlling access from and to a specific domain name, or a list of domain names and ip addresses. Let's create some policies to verify this control in action.
 
-1. Implement DNS policy to allow the external endpoint access from a specific workload, e.g. `dev/centos`.
+1. Implement DNS policy to allow the external endpoint access from a specific workload, e.g. `catfacts/db`.
 
    a. Apply a policy to allow access to `api.twilio.com` endpoint using DNS rule.
 
@@ -14,39 +14,39 @@ It's also possible to create network policies for controlling access from and to
      name: security.external-domain-access
    spec:
      tier: security
-     selector: (app == "centos" && projectcalico.org/namespace == "dev")
+     selector: (app == "db" && projectcalico.org/namespace == "catfacts")
      order: 100
      types:
        - Egress
      egress:
      - action: Allow
        source:
-         selector: app == 'centos'
+         selector: app == 'db'
        destination:
          domains:
          - '*.twilio.com'
    EOF
    ```
-   
+
    Test the access to the endpoints:
 
    ```bash
-   # test egress access to api.twilio.com
-   kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
+   # test egress access to api.twilio.com from db pod
+   kubectl -n catfacts exec -t $(kubectl -n catfacts get po -l app=db -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
    ```
 
    ```bash
    # test egress access to www.google.com
-   kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep -i http'
+   kubectl -n catfacts exec -t $(kubectl -n catfacts get po -l app=db -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep HTTP'
    ```
 
    Access to the `api.twilio.com` endpoint should be allowed by the DNS policy and any other external endpoints like `www.google.com` should be denied.
 
-   b. Modify the policy to include `*.google.com` in dns policy and test egress access to www.google.com again.
+   b. Modify the policy to include `*.google.com` in dns policy and test egress access to ```www.google.com``` again.
 
    ```bash
    # test egress access to www.google.com again and it should be allowed.
-   kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep -i http'
+   kubectl -n catfacts exec -t $(kubectl -n catfacts get po -l app=db -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep HTTP'
    ```
 
 2. Edit the policy to use a `NetworkSet` with DNS domain instead of inline DNS rule.
@@ -79,7 +79,7 @@ It's also possible to create network policies for controlling access from and to
      name: security.external-domain-access
    spec:
      tier: security
-     selector: (app == "centos" && projectcalico.org/namespace == "dev")
+     selector: (app == "db" && projectcalico.org/namespace == "catfacts")
      order: 100
      types:
        - Egress
@@ -93,32 +93,32 @@ It's also possible to create network policies for controlling access from and to
    c. Test the access to the endpoints.
 
    ```bash
-   # test egress access to api.twilio.com
-   kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
+   # test egress access to api.twilio.com from db pod
+   kubectl -n catfacts exec -t $(kubectl -n catfacts get po -l app=db -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -skI https://api.twilio.com 2>/dev/null | grep -i http'
    ```
 
    ```bash
    # test egress access to www.google.com
-   kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep -i http'
+   kubectl -n catfacts exec -t $(kubectl -n catfacts get po -l app=db -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep HTTP'
    ```
 
-   d. Modify the `NetworkSet` to include `*.google.com` in dns domain and test egress access to www.google.com again.
+   d. Modify the `NetworkSet` to include `*.google.com` in dns domain and test egress access to ```www.google.com``` again.
 
    ```bash
    # test egress access to www.google.com again and it should be allowed.
-   kubectl -n dev exec -t centos -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep -i http'
+   kubectl -n catfacts exec -t $(kubectl -n catfacts get po -l app=db -ojsonpath='{.items[0].metadata.name}') -- sh -c 'curl -m3 -skI https://www.google.com 2>/dev/null | grep HTTP'
    ```
 
 ## Ingress Policies using NetworkSets
 
-The NetworkSet can also be used to block access from a specific ip address or cidr to an endpoint in your cluster. To demonstrate it, we are going to block the access from your workstation to the Online Boutique frontend-external service.
+The NetworkSet can also be used to block access from a specific ip address or cidr to an endpoint in your cluster. To demonstrate it, we are going to block the access from your workstation to the ```facts``` external ```LoadBalancer``` service.
 
-   a. Test the access to the frontend-external service
+   a. Test the access to the ```facts``` external service
 
    ```bash
-   curl -sI -m3 $(kubectl get svc frontend-external -ojsonpath='{.status.loadBalancer.ingress[0].hostname}') | grep -i http
+   curl -sI -m3 $(kubectl get svc -n catfacts facts -ojsonpath='{.status.loadBalancer.ingress[0].hostname}') | grep -i http
    ```
-   
+
    b. Identify your workstation ip address and store it in a environment variable
 
    ```bash
@@ -140,8 +140,8 @@ The NetworkSet can also be used to block access from a specific ip address or ci
      - $MY_IP/32
    EOF
    ```
-   
-   d. Create the policy to deny access to the frontend service.
+
+   d. Create the policy to deny access to the ```facts``` service.
 
    ```yaml
    kubectl apply -f - <<-EOF
@@ -151,7 +151,7 @@ The NetworkSet can also be used to block access from a specific ip address or ci
      name: security.blockep-ips
    spec:
      tier: security
-     selector: app == "frontend"
+     selector: app == "facts"
      order: 300
      types:
        - Ingress
@@ -190,15 +190,15 @@ The NetworkSet can also be used to block access from a specific ip address or ci
    EOF
    ```
 
-   a. Test the access to the frontend-external service. It is blocked now. Wait a few minutes and check the `Activity > Alerts`.
+   a. Test the access to the ```facts``` service. It is blocked now. Wait a few minutes and check the `Activity > Alerts`.
 
    ```bash
-   curl -m3 $(kubectl get svc frontend-external -ojsonpath='{.status.loadBalancer.ingress[0].hostname}')
+   curl -m3 $(kubectl get svc -n catfacts facts -ojsonpath='{.status.loadBalancer.ingress[0].hostname}')
    ```
 
 ---
 
-[:arrow_right: Module 7 - Application Level Observability](/modules/module-7-application-observability.md)   <br>
+[:arrow_right: Module 5 - Application Level Observability](module-5-application-observability.md)  
 
-[:arrow_left: Module 5 - Identity-aware Microsegmentation](/modules/module-5-identity-aware-microsegmentation.md)    
-[:leftwards_arrow_with_hook: Back to Main](/README.md)  
+[:arrow_left: Module 3 - Workload Isolation with Microsegmentation](module-3-wkload-isolation.md)  
+[:leftwards_arrow_with_hook: Back to Main](../README.md)  

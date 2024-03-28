@@ -1,4 +1,4 @@
-# Module 7 - Application Level Observability
+# Module 5 - Application Level Observability
 
 L7 logs capture application interactions from HTTP header data in requests. Data shows what is actually sent in communications between specific pods, providing more specificity than flow logs. (Flow logs capture data only from connections for workload interactions).
 
@@ -9,7 +9,7 @@ L7 logs are visible in the Manager UI, service graph, in the HTTP tab.
 1. Configure Felix for log data collection
 
    Enable the Policy Sync API in Felix. For cluster-wide enablement, modify the default FelixConfiguration and set the field policySyncPathPrefix to /var/run/nodeagent.
-   
+
    ```bash
    kubectl patch felixconfiguration default --type='merge' -p '{"spec":{"policySyncPathPrefix":"/var/run/nodeagent"}}'
    ```
@@ -29,17 +29,17 @@ L7 logs are visible in the Manager UI, service graph, in the HTTP tab.
        logRequestsPerInterval: -1
    EOF
    ```
-   
+
    This creates l7-log-collector daemonset in calico-system namespace.
-   
+
    Ensure that the daemonset progresses and l7-collector and envoy-proxy containers inside the daemonset are in a Running state.
 
 3. Select traffic for L7 log collection
 
    Annotate the frontend service to collect L7 logs as shown.
-   
+
    ```bash
-   kubectl annotate svc frontend -n default projectcalico.org/l7-logging=true
+   kubectl annotate svc facts -n catfacts projectcalico.org/l7-logging=true
    ```
 
 ## Service Graph
@@ -78,7 +78,7 @@ The DNS dashboard summarizes DNS data and logs into metrics, providing high-leve
 
 ---
 
-[:arrow_right: Module 8 - Clean up](/modules/module-8-clean-up.md)    <br>
+[:arrow_right: Module 6 - Clean up](module-6-clean-up.md)  
 
-[:arrow_left: Module 6 - Ingress and Egress access control using NetworkSets](/modules/module-6-network-sets.md)    
-[:leftwards_arrow_with_hook: Back to Main](/README.md)  
+[:arrow_left: Module 4 - Ingress and Egress access control using NetworkSets](module-4-network-sets.md)  
+[:leftwards_arrow_with_hook: Back to Main](../README.md)  

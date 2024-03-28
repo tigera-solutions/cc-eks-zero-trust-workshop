@@ -13,24 +13,17 @@
    eksctl delete cluster --name $CLUSTERNAME --region $REGION
    ```
 
-3. Delete AWS CloudShell instance.
-
-   Navigate to `AWS Console` > `Services` > `CloudShell` and remove your workspace environment, e.g. `tigera-workspace`.
-
-4. Delete IAM role created for this workshop.
-
-   Use your local shell to run the follow AWS CLI commands:
+3. Delete this repo
 
    ```bash
-   IAM_ROLE='tigera-workshop-admin'
-   ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
-   aws iam detach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
-   aws iam remove-role-from-instance-profile --instance-profile-name $IAM_ROLE --role-name $IAM_ROLE
-   aws iam delete-instance-profile --instance-profile-name $IAM_ROLE
-   aws iam delete-role --role-name $IAM_ROLE
+   cd .. && rm -Rf cc-eks-zero-trust-workshop
    ```
 
-   If this command fails, you can remove the role via AWS Console once you delete the Cloud9 instance
+4. Delete environment variables backup file.
+
+   ```bash
+   rm ~/workshopvars.env
+   ```
 
 ---
 

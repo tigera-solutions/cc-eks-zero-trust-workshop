@@ -40,7 +40,16 @@ The estimated time to complete this workshop is 60-90 minutes.
 
 - We will run this workshop from the AWS CloudShell, as described in that repository.
 
-- To start your cluster, we will scale the nodegroup up to 2 nodes using ```eksctl```. Reload the environment variables that were created in your AWS CloudShell first and then scale the nodegroup up. Use the following command:
+- To start your cluster, we will scale the nodegroup up to 2 nodes using ```eksctl```. Reload the environment variables that were created in your AWS CloudShell first and then scale the nodegroup up.
+  
+- Ensure the nodegroup variable is populated into the ```workshopvars.env``` file:
+
+   ```bash
+   export NGNAME=$(eksctl get nodegroups --cluster $CLUSTERNAME --region $REGION | grep $CLUSTERNAME | awk -F ' ' '{print $2}') && \
+   echo export NGNAME=$NGNAME >> ~/workshopvars.env
+   ```
+
+- Use the following command:
 
   ```bash
   source ~/workshopvars.env

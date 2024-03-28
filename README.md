@@ -65,11 +65,12 @@ The estimated time to complete this workshop is 60-90 minutes.
 
 This workshop is organized in sequential modules. One module will build up on top of the previous module, so please, follow the order as proposed below.
 
-Module 1 - [Connect the EKS cluster to Calico Cloud](/modules/module-1-connect-calicocloud.md)  
-Module 2 - [Zero-Trust Workload Access Control with Namespace Isolation Recommendation](/modules/module-2-ztac-ns-isolation.md)  
-Module 3 - [Workload Isolation with Microsegmentation](/modules/module-3-wkload-isolation.md)  
-Module 4 - [Application Level Observability](/modules/module-4-application-observability.md)  
-Module 5 - [Clean up](/modules/module-5-clean-up.md)  
+Module 1 - [Connect the EKS cluster to Calico Cloud](modules/module-1-connect-calicocloud.md)  
+Module 2 - [Zero-Trust Workload Access Control with Namespace Isolation Recommendation](modules/module-2-ztac-ns-isolation.md)  
+Module 3 - [Workload Isolation with Microsegmentation](modules/module-3-wkload-isolation.md)  
+Module 4 - [Ingress and Egress access control using NetworkSets](modules/module-4-network-sets.md)  
+Module 5 - [Application Level Observability](modules/module-5-application-observability.md)  
+Module 6 - [Clean up](modules/module-6-clean-up.md)  
 
 ## Useful links
 

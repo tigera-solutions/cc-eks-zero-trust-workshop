@@ -63,10 +63,10 @@ Calico Security Policies provide a richer set of policy capabilities than the na
 
 2. Now, let's use the `Recommend a Policy` feature to create the policies for the other workloads.
 
-  Let's start with the `facts` workload.
+   Let's start with the `facts` workload.
   
-  ![recommend-policy](https://github.com/tigera-solutions/cc-aks-zero-trust-workshop/assets/104035488/00e7418c-b4e5-4564-95d3-8270912e19b6)
-
+   ![recommend-policy](https://github.com/tigera-solutions/cc-aks-zero-trust-workshop/assets/104035488/00e7418c-b4e5-4564-95d3-8270912e19b6)
+  
 3. Now that you have learned how to create policies using Calico Cloud UI, go ahead and create microsegmentation policies for the `worker` workload.
 
 > [!TIP]

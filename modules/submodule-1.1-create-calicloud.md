@@ -1,6 +1,6 @@
 # SubModule 3.1 - Creating a Calico Cloud trial account
 
-1. Navigate to [https://www.calicocloud.io/](https://www.calicocloud.io/) and sign up for a free 14 day trial account. Provide a valid e-mail and create a password following the guidelines provided. Continue and a verification e-mail will be sent to the address you provided. 
+1. Navigate to [https://www.calicocloud.io/](https://www.calicocloud.io/) and sign up for a free 14 day trial account. Provide a valid e-mail and create a password following the guidelines provided. Continue and a verification e-mail will be sent to the address you provided.
 
     ![register](https://user-images.githubusercontent.com/104035488/188006082-e13d07eb-fb4a-4a9a-8189-432a8659f100.gif)
 

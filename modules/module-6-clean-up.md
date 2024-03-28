@@ -1,0 +1,38 @@
+# Module 8 - Clean up
+
+1. Delete the applications stack to clean up any `loadbalancer` services.
+
+   ```bash
+   kubectl delete -f pre/40-catfacts-app.yaml
+   ```
+
+2. Delete EKS cluster.
+
+   ```bash
+   source ~/workshopvars.env
+   eksctl delete cluster --name $CLUSTERNAME --region $REGION
+   ```
+
+3. Delete AWS CloudShell instance.
+
+   Navigate to `AWS Console` > `Services` > `CloudShell` and remove your workspace environment, e.g. `tigera-workspace`.
+
+4. Delete IAM role created for this workshop.
+
+   Use your local shell to run the follow AWS CLI commands:
+
+   ```bash
+   IAM_ROLE='tigera-workshop-admin'
+   ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
+   aws iam detach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
+   aws iam remove-role-from-instance-profile --instance-profile-name $IAM_ROLE --role-name $IAM_ROLE
+   aws iam delete-instance-profile --instance-profile-name $IAM_ROLE
+   aws iam delete-role --role-name $IAM_ROLE
+   ```
+
+   If this command fails, you can remove the role via AWS Console once you delete the Cloud9 instance
+
+---
+
+[:arrow_left: Module 5 - Application Level Observability](module-5-application-observability.md)  
+[:leftwards_arrow_with_hook: Back to Main](../README.md)  
